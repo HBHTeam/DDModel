@@ -28,7 +28,7 @@
 @property (assign, nonatomic) NSInteger numberOfUnnamedClasses;
     
 - (void)loadJSONWithData:(NSData *)data outputLanguageWriter:(id<OutputLanguageWriterProtocol>)writer;
-- (ClassBaseObject *)parseData:(NSDictionary *)dict intoObjectsWithBaseObjectName:(NSString *)baseObjectName andBaseObjectClass:(NSString *)baseObjectClass outputLanguageWriter:(id<OutputLanguageWriterProtocol>)writer;
+- (ClassBaseObject *)parseData:(NSDictionary *)dict intoObjectsWithBaseObjectName:(NSString *)baseObjectName andBaseObjectClass:(NSString *)baseObjectClass outputLanguageWriter:(id<OutputLanguageWriterProtocol>)writer preName:(NSString *)preName;
 
 @end
 
@@ -77,7 +77,7 @@
     if ([object isKindOfClass:[NSDictionary class]]) {
         self.rawJSONObject = object;
         self.parseComplete = NO;
-        [self parseData:(NSDictionary *)self.rawJSONObject intoObjectsWithBaseObjectName:@"InternalBaseClass" andBaseObjectClass:@"NSObject" outputLanguageWriter:writer];
+        [self parseData:(NSDictionary *)self.rawJSONObject intoObjectsWithBaseObjectName:@"InternalBaseClass" andBaseObjectClass:@"NSObject" outputLanguageWriter:writer preName:nil];
         self.parseComplete = YES;
     }
     
@@ -90,7 +90,7 @@
         for (NSObject *arrayObject in (NSArray *)object) {
             
             if ([arrayObject isKindOfClass:[NSDictionary class]]) {
-                [self parseData:(NSDictionary *)arrayObject intoObjectsWithBaseObjectName:@"InternalBaseClass" andBaseObjectClass:@"NSObject" outputLanguageWriter:writer];
+                [self parseData:(NSDictionary *)arrayObject intoObjectsWithBaseObjectName:@"InternalBaseClass" andBaseObjectClass:@"NSObject" outputLanguageWriter:writer preName:nil];
             }
         }
         self.parseComplete = YES;
@@ -99,8 +99,16 @@
 
 #pragma mark - Create the model objects
 
-- (ClassBaseObject *)parseData:(NSDictionary *)dict intoObjectsWithBaseObjectName:(NSString *)baseObjectName andBaseObjectClass:(NSString *)baseObjectClass outputLanguageWriter:(id<OutputLanguageWriterProtocol>)writer {
+- (ClassBaseObject *)parseData:(NSDictionary *)dict intoObjectsWithBaseObjectName:(NSString *)baseObjectName andBaseObjectClass:(NSString *)baseObjectClass outputLanguageWriter:(id<OutputLanguageWriterProtocol>)writer preName:(NSString *)preName {
     
+    if (!preName) {
+        preName = @"";
+    }
+    
+    
+    preName = [preName stringByReplacingOccurrencesOfString:@"InternalBaseClass" withString:@""];
+    preName = [preName stringByReplacingOccurrencesOfString:@"BaseClass" withString:@""];
+    baseObjectName = [NSString stringWithFormat:@"%@%@", preName, baseObjectName];
     if (self.parsedDictionary == nil) {
         self.parsedDictionary = [NSMutableDictionary dictionary];
     }
@@ -202,7 +210,7 @@
                 // the array (used by java)
                 for (tempArrayObject in (NSArray *)tempObject) {
                     if ([tempArrayObject isKindOfClass:[NSDictionary class]]) {
-                        ClassBaseObject *newClass = [self parseData:(NSDictionary *)tempArrayObject intoObjectsWithBaseObjectName:currentKey andBaseObjectClass:@"NSObject" outputLanguageWriter:writer];
+                        ClassBaseObject *newClass = [self parseData:(NSDictionary *)tempArrayObject intoObjectsWithBaseObjectName:currentKey andBaseObjectClass:@"NSObject" outputLanguageWriter:writer preName:tempClass.className];
                         tempPropertyObject.referenceClass = newClass;
                         tempPropertyObject.collectionType = PropertyTypeClass;
                         tempPropertyObject.collectionTypeString = newClass.className;
@@ -234,7 +242,8 @@
                 // NSDictionary Objects
                 [tempPropertyObject setIsClass:YES];
                 tempPropertyObject.type = PropertyTypeClass;
-                tempPropertyObject.referenceClass = [self parseData:(NSDictionary *)tempObject intoObjectsWithBaseObjectName:currentKey andBaseObjectClass:@"NSObject" outputLanguageWriter:writer];
+                // 递归
+                tempPropertyObject.referenceClass = [self parseData:(NSDictionary *)tempObject intoObjectsWithBaseObjectName:currentKey andBaseObjectClass:@"NSObject" outputLanguageWriter:writer preName:tempClass.className];
                 
             } else if ([tempObject isKindOfClass:[NSNull class]]) {
                 tempPropertyObject.type = PropertyTypeOther;

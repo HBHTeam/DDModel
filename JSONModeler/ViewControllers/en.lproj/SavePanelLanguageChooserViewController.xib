@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment version="1070" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SavePanelLanguageChooserViewController">
@@ -26,15 +27,15 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="1" customClass="PanelCustomView">
-            <rect key="frame" x="0.0" y="0.0" width="528" height="149"/>
+            <rect key="frame" x="0.0" y="0.0" width="528" height="387"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3">
-                    <rect key="frame" x="169" y="105" width="191" height="26"/>
+                    <rect key="frame" x="169" y="343" width="191" height="26"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="186" id="571"/>
                     </constraints>
-                    <popUpButtonCell key="cell" type="push" title="Scala" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="s6s-50-mpT" id="4">
+                    <popUpButtonCell key="cell" type="push" title="Scala" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="s6s-50-mpT" id="4">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
                         <menu key="menu" title="OtherViews" id="5">
@@ -50,7 +51,7 @@
                                 <menuItem title="Python" id="415">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
-                                <menuItem title="Scala" id="s6s-50-mpT"/>
+                                <menuItem title="Scala" state="on" id="s6s-50-mpT"/>
                             </items>
                         </menu>
                         <connections>
@@ -63,7 +64,7 @@
                     </connections>
                 </popUpButton>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9">
-                    <rect key="frame" x="-2" y="112" width="167" height="17"/>
+                    <rect key="frame" x="-2" y="350" width="167" height="17"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="163" id="348"/>
                     </constraints>
@@ -74,7 +75,7 @@
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="85">
-                    <rect key="frame" x="171" y="72" width="337" height="22"/>
+                    <rect key="frame" x="171" y="310" width="337" height="22"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="MyClass" drawsBackground="YES" id="86">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -90,7 +91,7 @@
                     </connections>
                 </textField>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="165">
-                    <rect key="frame" x="-2" y="75" width="167" height="17"/>
+                    <rect key="frame" x="-2" y="313" width="167" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Base Class" id="166">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -138,10 +139,10 @@
                     </constraints>
                 </customView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="511" userLabel="Objective C Panel">
-                    <rect key="frame" x="0.0" y="0.0" width="548" height="81"/>
+                    <rect key="frame" x="0.0" y="0.0" width="548" height="319"/>
                     <subviews>
                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="438">
-                            <rect key="frame" x="171" y="40" width="337" height="22"/>
+                            <rect key="frame" x="171" y="278" width="337" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="337" id="563"/>
                             </constraints>
@@ -159,7 +160,7 @@
                             </connections>
                         </textField>
                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="439">
-                            <rect key="frame" x="0.0" y="43" width="167" height="17"/>
+                            <rect key="frame" x="0.0" y="281" width="167" height="17"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="163" id="520"/>
                             </constraints>
@@ -192,8 +193,8 @@
                         <constraint firstItem="438" firstAttribute="centerY" secondItem="439" secondAttribute="centerY" id="587"/>
                     </constraints>
                 </customView>
-                <customView ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0iB-rJ-ake" userLabel="JSON Library Panel">
-                    <rect key="frame" x="0.0" y="-13" width="548" height="62"/>
+                <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0iB-rJ-ake" userLabel="JSON Library Panel">
+                    <rect key="frame" x="0.0" y="225" width="548" height="62"/>
                     <subviews>
                         <textField verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EWq-r4-MFb">
                             <rect key="frame" x="-2" y="23" width="167" height="17"/>
@@ -206,7 +207,7 @@
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <popUpButton verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6tk-K1-dXS">
+                        <popUpButton verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6tk-K1-dXS">
                             <rect key="frame" x="169" y="18" width="191" height="26"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="186" id="oBU-z9-vJQ"/>
@@ -254,6 +255,7 @@
                 <constraint firstItem="511" firstAttribute="bottom" secondItem="1" secondAttribute="bottom" id="559"/>
                 <constraint firstItem="511" firstAttribute="top" secondItem="1" secondAttribute="top" constant="68" id="562"/>
             </constraints>
+            <point key="canvasLocation" x="139" y="287.5"/>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="15"/>
     </objects>
