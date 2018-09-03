@@ -54,8 +54,15 @@
 - (IBAction)languagePopUpChanged:(id)sender {
     self.languageDropDown.nextKeyView = self.baseClassField;
     [self.baseClassField becomeFirstResponder];
-    
-    if (_languageDropDownIndex == OutputLanguageJava || _languageDropDownIndex == OutputLanguageScala) {
+    if (_languageDropDownIndex == OutputLanguageSwift) {
+        self.javaPanel.hidden = YES;
+        self.jsonLibraryPanel.hidden = YES;
+        self.objectiveCPanel.hidden = NO;
+        self.buildForArcButton.hidden = NO;
+        
+        self.baseClassField.nextKeyView = self.classPrefixField;
+
+    }else if (_languageDropDownIndex == OutputLanguageJava || _languageDropDownIndex == OutputLanguageScala) {
         self.javaPanel.hidden = NO;
         self.jsonLibraryPanel.hidden = _languageDropDownIndex != OutputLanguageScala;
         self.objectiveCPanel.hidden = YES;

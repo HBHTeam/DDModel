@@ -35,11 +35,14 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="186" id="571"/>
                     </constraints>
-                    <popUpButtonCell key="cell" type="push" title="Scala" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="s6s-50-mpT" id="4">
+                    <popUpButtonCell key="cell" type="push" title="Swift" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="H3s-BB-aec" id="4">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
                         <menu key="menu" title="OtherViews" id="5">
                             <items>
+                                <menuItem title="Swift" id="H3s-BB-aec" userLabel="Swift">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
                                 <menuItem title="Objective-C" id="6"/>
                                 <menuItem title="Java" id="7"/>
                                 <menuItem title="Core Data (Objective-C)" id="414">

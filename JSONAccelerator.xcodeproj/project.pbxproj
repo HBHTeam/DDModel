@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3231253BA26670E24022B206 /* libPods-JSON Accelerator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0AE914DFD3F3C8AF6E9A87 /* libPods-JSON Accelerator.a */; };
+		3F2C6215213D26F400AC217D /* OutputLanguageWriterSwift.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C6214213D26F400AC217D /* OutputLanguageWriterSwift.m */; };
 		440BCC411CC138AC00F6B37D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 440BCC401CC138AC00F6B37D /* Images.xcassets */; };
 		4423310C149B9E290071978D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC4F21462D8E1007BF9DC /* main.m */; };
 		4423310D149B9E290071978D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC4F91462D8E1007BF9DC /* AppDelegate.m */; };
@@ -101,6 +102,8 @@
 
 /* Begin PBXFileReference section */
 		2C0AE914DFD3F3C8AF6E9A87 /* libPods-JSON Accelerator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JSON Accelerator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F2C6213213D26F400AC217D /* OutputLanguageWriterSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterSwift.h; path = Models/OutputLanguageWriters/OutputLanguageWriterSwift.h; sourceTree = "<group>"; };
+		3F2C6214213D26F400AC217D /* OutputLanguageWriterSwift.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OutputLanguageWriterSwift.m; path = Models/OutputLanguageWriters/OutputLanguageWriterSwift.m; sourceTree = "<group>"; };
 		440BCC401CC138AC00F6B37D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "JSON Accelerator/Images.xcassets"; sourceTree = "<group>"; };
 		4414992314642ABC002B6969 /* ClassBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassBaseObject.h; path = Models/ClassBaseObject.h; sourceTree = "<group>"; };
 		4414992414642ABC002B6969 /* ClassBaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = ClassBaseObject.m; path = Models/ClassBaseObject.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -543,6 +546,8 @@
 				44F037D014C8B63600FECF86 /* OutputLanguageWriterProtocol.h */,
 				44F037CC14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.h */,
 				44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */,
+				3F2C6213213D26F400AC217D /* OutputLanguageWriterSwift.h */,
+				3F2C6214213D26F400AC217D /* OutputLanguageWriterSwift.m */,
 				44F037D114C8C43A00FECF86 /* OutputLanguageWriterJava.h */,
 				44F037D214C8C43A00FECF86 /* OutputLanguageWriterJava.m */,
 				7E3B2BF81CC88DE400D3D03A /* OutputLanguageWriterScalaCaseClass.h */,
@@ -760,6 +765,7 @@
 				4423310E149B9E290071978D /* JSONFetcher.m in Sources */,
 				44233116149B9E290071978D /* JSONModeler.m in Sources */,
 				44233117149B9E290071978D /* ClassBaseObject.m in Sources */,
+				3F2C6215213D26F400AC217D /* OutputLanguageWriterSwift.m in Sources */,
 				44233118149B9E290071978D /* ClassPropertiesObject.m in Sources */,
 				44233119149B9E290071978D /* NSString+Nerdery.m in Sources */,
 				4423311F149B9E290071978D /* BaseView.m in Sources */,

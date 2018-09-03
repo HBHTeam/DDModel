@@ -27,6 +27,7 @@
 #import "MAAttachedWindow.h"
 
 #import "OutputLanguageWriterObjectiveC.h"
+#import "OutputLanguageWriterSwift.h"
 #import "OutputLanguageWriterJava.h"
 #import "OutputLanguageWriterCoreData.h"
 #import "OutputLanguageWriterDjango.h"
@@ -384,7 +385,24 @@
                 NSString *baseClassName = (self.languageChooserViewController).baseClassName;
                 JsonLibrary jsonLibrary = (self.languageChooserViewController).chosenJsonLibrary;
                 
-                if (language == OutputLanguageObjectiveC) {
+                if (language == OutputLanguageSwift) {
+                    NSString *classPrefix = (self.languageChooserViewController).classPrefix;
+                    
+                    if (!classPrefix) {
+                        classPrefix = @"";
+                    }
+                    writer = [[OutputLanguageWriterSwift alloc]init];
+                    
+                    if (baseClassName != nil) {
+                        optionsDict = @{kSwiftWritingOptionBaseClassName: baseClassName,
+                                        kSwiftWritingOptionUseARC: @(self.languageChooserViewController.buildForARC),
+                                        kSwiftWritingOptionClassPrefix: classPrefix};
+                    }else{
+                        optionsDict = @{kSwiftWritingOptionUseARC: @(self.languageChooserViewController.buildForARC),
+                                        kSwiftWritingOptionClassPrefix: classPrefix};
+                    }
+                    
+                }else if (language == OutputLanguageObjectiveC) {
                     NSString *classPrefix = (self.languageChooserViewController).classPrefix;
                     
                     if (!classPrefix) {

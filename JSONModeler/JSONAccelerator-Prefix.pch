@@ -14,7 +14,8 @@
     #endif
 
 typedef NS_ENUM(unsigned int, OutputLanguage) {
-    OutputLanguageObjectiveC = 0,
+    OutputLanguageSwift = 0,
+    OutputLanguageObjectiveC,
     OutputLanguageJava,
     OutputLanguageCoreDataObjectiveC,
     OutputLanguageDjangoPython,

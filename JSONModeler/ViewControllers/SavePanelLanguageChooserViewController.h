@@ -31,8 +31,8 @@
 @property (weak) IBOutlet NSTextField *baseClassLabel;
 @property (weak) IBOutlet NSTextField *baseClassField;
 @property (weak) IBOutlet NSButton *buildForArcButton;
-@property (weak) IBOutlet NSView *javaPanel;
-@property (weak) IBOutlet NSView *jsonLibraryPanel;
+@property (weak) IBOutlet NSView *javaPanel; // java
+@property (weak) IBOutlet NSView *jsonLibraryPanel; // json 格式
 @property (weak) IBOutlet NSView *objectiveCPanel;
 @property (weak) IBOutlet NSTextField *classPrefixField;
 @property (weak) IBOutlet NSTextField *classPrefixLabel;
