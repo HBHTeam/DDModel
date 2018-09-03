@@ -69,7 +69,7 @@
     }
     
     for (ClassBaseObject *base in files) {
-        <#statements#>
+        
     }
     
 }
